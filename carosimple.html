@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xin chào</title>
+</head>
+<body>
+    <h2> Game Caro </h2>
+    <p id="carogame" />
+    <input type="button" value="Nhat Hoang" onclick="nhatHoang()" >
+    <script>
+        let b = document.getElementById("carogame");
+        let board = [];
+        let data = "";
+        for(let i =0; i < 3; i ++){
+            board[i] = new Array(".", ".", ".");
+        }
+        for(let i =0; i < 3; i ++){
+            data =data + "</br>";
+            for(let j = 0; j < 3; j ++){
+                data = data + board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        data = data + "<br/><br/><input type='button' value='Nhat Hoang' onclick='(nhatHoang())'>"
+        b.innerHTML = data;
+
+        function nhatHoang() {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "x";
+            for (let i = 0; i < 3; i++) {
+                data += "<br/>";
+                for (let j = 0; j < 3; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            data += "<br/><br/><input type='button' value='Nhat Hoang' onclick='nhatHoang()'>"
+            b.innerHTML = "<hr/>" + data;
+        }
+
+    </script>
+
+</body>
